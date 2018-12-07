@@ -1,0 +1,42 @@
+<top>
+   <a attr="foo">Foo</a><!-- Noncompliant {{Reformat code so that every element starts on a separate line.}} -->
+<!--             ^^^  -->
+<!--                ^^^^<  -->
+
+  <a><b>hello</b></a><!-- Noncompliant -->
+<!-- ^^^  -->
+<!--    ^^^^^<  -->
+<!--         ^^^^<  -->
+<!--             ^^^^<  -->
+
+  <a
+    attr="foo">Foo<!-- Noncompliant -->
+<!--           ^^^  -->
+  </a>
+
+  <!-- Noncompliant@+1 -->
+  <a><b attr="foo"
+    />
+  </a>
+
+  <a>
+    <b/>
+  </a>
+
+  <a> <!-- comment: should not raise an issue -->
+  </a>
+  <a> <!-- comment: should not raise an issue --></a>
+
+  <a>
+    <!-- OK -->
+  </a>
+
+  <a>
+    OK
+  </a>
+
+  <a>
+    <!-- Noncompliant@+1 -->
+    <b><c /><c>hello</c></b>
+  </a>
+</top>
